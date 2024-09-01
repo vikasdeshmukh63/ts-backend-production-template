@@ -1,0 +1,12 @@
+{
+  "name": "node_production_level_setup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "vikasdeshmukh",
+  "license": "ISC",
+  "description": ""
+}
