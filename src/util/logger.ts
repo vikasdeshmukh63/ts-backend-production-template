@@ -4,6 +4,10 @@ import util from 'util'
 import config from '../config/config'
 import { EApplicationEnviornment } from '../constants/application'
 import path from 'path'
+import * as sourceMapSupport from 'source-map-support'
+
+// linking trace support
+sourceMapSupport.install()
 
 const consoleLogFormat = format.printf((info) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -53,21 +57,21 @@ const fileLogFormat = format.printf((info) => {
                 message: value.message,
                 trace: value.stack || ''
             }
-        }else{
-            logMeta[key] = value;
+        } else {
+            logMeta[key] = value
         }
     }
 
-    const logData ={
-        level:level.toUpperCase(),
+    const logData = {
+        level: level.toUpperCase(),
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         message,
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         timestamp,
-        meta:logMeta
-    };
+        meta: logMeta
+    }
 
-    return JSON.stringify(logData,null,4)
+    return JSON.stringify(logData, null, 4)
 })
 
 const fileTransport = (): Array<FileTransportInstance> => {
